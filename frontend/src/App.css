@@ -1,0 +1,449 @@
+/* Paleta del diagrama: Azul petróleo / Teal oscuro (#185675, #144963, #0f394d) */
+
+.layout-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* 1. Encabezado Tabulado */
+.header-tabs-panel {
+  background-color: #175474;
+  border-radius: 8px;
+  padding: 16px 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+}
+
+.tabs-header-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.tabs-navigation {
+  display: flex;
+  gap: 12px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active {
+  background-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Grid Principal: Gráfica izquierda + Controles derecha */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .main-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Panel Izquierdo: Gráfica */
+.chart-panel {
+  background-color: #175474;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+  min-height: 480px;
+}
+
+.panel-banner-title {
+  background-color: #12435e;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.chart-canvas-wrapper {
+  flex: 1;
+  background-color: #0f2b3c;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  display: flex;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #12435e;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-color-line {
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.legend-color-line.cyan {
+  background-color: #22d3ee;
+}
+
+.legend-color-line.blue-dash {
+  background-color: #38bdf8;
+  border: 1px dashed #ffffff;
+}
+
+.legend-dot-root {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff2a5f;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 6px rgba(255, 42, 95, 0.8);
+}
+
+/* Panel Derecho: Controles */
+.controls-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.control-card {
+  background-color: #175474;
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.control-card-header {
+  background-color: #12435e;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.control-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e0f2fe;
+  text-transform: uppercase;
+}
+
+/* Entrada de texto */
+.text-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #0c4a6e;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  padding: 2px 10px;
+}
+
+.input-prefix {
+  color: #7dd3fc;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 15px;
+  margin-right: 8px;
+}
+
+.function-text-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 8px 4px;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.presets-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.presets-label {
+  font-size: 12px;
+  color: #bae6fd;
+}
+
+.preset-chip {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: monospace;
+  transition: all 0.15s;
+}
+
+.preset-chip:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: #38bdf8;
+}
+
+/* Entradas límite A y B */
+.limits-inputs-row {
+  display: flex;
+  gap: 12px;
+}
+
+.interval-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.status-separator {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.valid-badge {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.invalid-badge {
+  color: #f87171;
+  font-weight: 600;
+}
+
+/* Fila dividida (Switch + Campo) */
+.control-row-split {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .control-row-split {
+    flex-direction: column;
+  }
+}
+
+.half-card {
+  flex: 1;
+}
+
+.centered-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.switch-toggle-container {
+  display: flex;
+  background-color: #0c4a6e;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 4px;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.switch-option {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #bae6fd;
+  padding: 8px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.switch-option.active {
+  background-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tolerance-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tolerance-select {
+  background-color: #0c4a6e;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.tolerance-select option {
+  background-color: #075985;
+  color: #ffffff;
+}
+
+/* Resultados */
+.results-card {
+  margin-top: 4px;
+}
+
+.result-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 8px;
+}
+
+.result-alert.success {
+  background-color: #064e3b;
+  border: 1px solid #059669;
+  color: #ecfdf5;
+}
+
+.result-alert.error {
+  background-color: #7f1d1d;
+  border: 1px solid #dc2626;
+  color: #fef2f2;
+}
+
+.success-icon {
+  color: #34d399;
+}
+
+.result-main-val {
+  font-size: 17px;
+}
+
+.result-sub-info {
+  font-size: 13px;
+  color: #a7f3d0;
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* Tabla de Historial de Iteraciones */
+.history-table-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.history-title {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #0f172a;
+  font-size: 18px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: left;
+}
+
+.history-table th {
+  background-color: #175474;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-weight: 600;
+}
+
+.history-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.history-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.highlight-cell {
+  font-weight: bold;
+  color: #0284c7;
+}
