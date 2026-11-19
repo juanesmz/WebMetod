@@ -11,10 +11,18 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# Configuración de CORS para permitir la comunicación fluida con el frontend (Vite / React / etc.)
+origins = [
+    "https://frontend-kappa-six-bxra2n7gon.vercel.app",
+    "https://frontend-3gmx5ur0b-juanes01062000-7753.vercel.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+# Configuración de CORS para permitir la comunicación con el frontend en Vercel
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
